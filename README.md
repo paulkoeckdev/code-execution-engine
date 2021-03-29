@@ -1,8 +1,8 @@
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg?style=for-the-badge)](https://GitHub.com/simonkoeck/code-execution-engine/graphs/commit-activity) [![Ask Me Anything !](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg?style=for-the-badge)](https://GitHub.com/simonkoeck) [![GitHub license](https://img.shields.io/github/license/simonkoeck/code-execution-engine?style=for-the-badge)](https://github.com/simonkoeck/code-execution-engine/blob/master/LICENSE) [![GitHub contributors](https://img.shields.io/github/contributors/simonkoeck/code-execution-engine?style=for-the-badge)](https://GitHub.com/simonkoeck/code-execution-engine)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg?style=for-the-badge)](https://GitHub.com/simonkoeck/code-execution-engine/graphs/commit-activity) [![GitHub license](https://img.shields.io/github/license/simonkoeck/code-execution-engine?style=for-the-badge)](https://github.com/simonkoeck/code-execution-engine/blob/master/LICENSE) ![npm](https://img.shields.io/npm/dw/code-execution-engine?style=for-the-badge) ![GitHub last commit](https://img.shields.io/github/last-commit/simonkoeck/code-execution-engine?style=for-the-badge)
 
 # Code-Execution-Engine
 
-A simple and secure Code-Execution-Engine in Javascript.
+A fast and secure Code-Execution-Engine in Javascript.
 
 ❗This package is not secure by default. Visit [Security](#security) for production projects.❗
 
@@ -49,14 +49,28 @@ cee
   });
 ```
 
+### execute(_input_, _language_) → Promise&lt;String&gt;
+
+Returns the result (stdout) of the executed code. If stderr is not empty, an exception will be thrown with the content of stderr.
+
+_input_: string – The code you want to execute.
+
+_language_: cee.Language – Pass the language the code is written in, for example `cee.languages.PYTHON3`. [Supported Lanuages](#supported-languages)
+
 <a name="supported-languages"/>
 
 ## Supported Languages
 
-- **Python3** (Windows / Linux)
-- **Batch** (Windows)
-- **Bash** (Linux)
-- **C** (Linux)
+|   Windows    |    Linux     |
+| :----------: | :----------: |
+|  `Python3`   |  `Python3`   |
+| `Javascript` | `Javascript` |
+|    `Ruby`    |    `Ruby`    |
+|     `Go`     |     `Go`     |
+|   `Batch`    |    `Bash`    |
+|              |     `C`      |
+|              |    `C++`     |
+|              |    `Java`    |
 
 More supported languages coming soon.
 
@@ -84,7 +98,7 @@ executor
   });
 ```
 
-In order to use LXC, follow the instructions below to setup LXC.
+To use LXC, follow the instructions below to setup LXC.
 
 <a name="lxc"/>
 
@@ -92,7 +106,7 @@ In order to use LXC, follow the instructions below to setup LXC.
 
 LXC are Linux containers, that run the code in a different and secure environment. To use them, you need to install them first. LXC are only available on Linux-Systems.
 
-In order to use this package with LXC, you need to install an unprivileged container.
+To use this package with LXC, you need to install an unprivileged container.
 
 **Follow these instructions: [linuxcontainers.org](https://linuxcontainers.org/lxc/getting-started/#creating-unprivileged-containers-as-a-user)**
 
